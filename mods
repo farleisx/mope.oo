@@ -1,0 +1,40 @@
+// RVC Modpack 3.0 - client.js
+console.log("RVC Modpack 3.0 client loaded!");
+
+// Example: small UI tweak - adds a floating debug box
+(function() {
+    const debugBox = document.createElement('div');
+    debugBox.style.position = 'fixed';
+    debugBox.style.top = '10px';
+    debugBox.style.right = '10px';
+    debugBox.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    debugBox.style.color = '#fff';
+    debugBox.style.padding = '8px';
+    debugBox.style.borderRadius = '8px';
+    debugBox.style.zIndex = '9999';
+    debugBox.innerText = 'RVC Mod Active';
+    document.body.appendChild(debugBox);
+
+    // Update box with current mouse position (example)
+    window.addEventListener('mousemove', (e) => {
+        debugBox.innerText = `RVC Mod Active\nMouse: (${e.clientX}, ${e.clientY})`;
+    });
+})();
+
+// Example: simple modification to game loop (mock)
+if (window.requestAnimationFrame) {
+    const originalRAF = window.requestAnimationFrame;
+    window.requestAnimationFrame = function(callback) {
+        // You can inject code before each frame here
+        // e.g., log FPS, modify game variables, etc.
+        return originalRAF.call(window, callback);
+    };
+}
+
+// You can add your custom functions below
+function customFeature() {
+    console.log('Custom feature triggered!');
+}
+
+// Auto-trigger example
+setTimeout(customFeature, 3000);
