@@ -1,40 +1,39 @@
 // RVC Modpack 3.0 - client.js
 console.log("RVC Modpack 3.0 client loaded!");
 
-// Example: small UI tweak - adds a floating debug box
+// Add a floating status box
 (function() {
-    const debugBox = document.createElement('div');
-    debugBox.style.position = 'fixed';
-    debugBox.style.top = '10px';
-    debugBox.style.right = '10px';
-    debugBox.style.backgroundColor = 'rgba(0,0,0,0.7)';
-    debugBox.style.color = '#fff';
-    debugBox.style.padding = '8px';
-    debugBox.style.borderRadius = '8px';
-    debugBox.style.zIndex = '9999';
-    debugBox.innerText = 'RVC Mod Active';
-    document.body.appendChild(debugBox);
+    const statusBox = document.createElement('div');
+    statusBox.style.position = 'fixed';
+    statusBox.style.top = '10px';
+    statusBox.style.right = '10px';
+    statusBox.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    statusBox.style.color = '#fff';
+    statusBox.style.padding = '8px';
+    statusBox.style.borderRadius = '8px';
+    statusBox.style.zIndex = '9999';
+    statusBox.innerText = 'RVC Mod Active';
+    document.body.appendChild(statusBox);
 
-    // Update box with current mouse position (example)
+    // Update box with current mouse position
     window.addEventListener('mousemove', (e) => {
-        debugBox.innerText = `RVC Mod Active\nMouse: (${e.clientX}, ${e.clientY})`;
+        statusBox.innerText = `RVC Mod Active\nMouse: (${e.clientX}, ${e.clientY})`;
     });
 })();
 
-// Example: simple modification to game loop (mock)
+// Hook into the game loop (example, non-intrusive)
 if (window.requestAnimationFrame) {
     const originalRAF = window.requestAnimationFrame;
     window.requestAnimationFrame = function(callback) {
-        // You can inject code before each frame here
-        // e.g., log FPS, modify game variables, etc.
+        // Inject code before each frame
         return originalRAF.call(window, callback);
     };
 }
 
-// You can add your custom functions below
+// Custom feature example
 function customFeature() {
     console.log('Custom feature triggered!');
 }
 
-// Auto-trigger example
+// Trigger example feature after 3 seconds
 setTimeout(customFeature, 3000);
