@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 Modern Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Rubik', sans-serif; margin:0; padding:0; scroll-behavior:smooth; }
+  .template { display:none; padding:0; margin:0; }
+  button { cursor:pointer; transition:0.3s; }
+  button:hover { transform:scale(1.05); }
+
+  /* -------------------- Template 1: Classic Card Layout -------------------- */
+  #template1 { background:#f5f5f5; }
+  #template1 .hero { background:url('https://images.unsplash.com/photo-1597806554465-351c35165fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200') center/cover no-repeat; height:70vh; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; position:relative; }
+  #template1 .hero::before { content:""; position:absolute; top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.5);}
+  #template1 .hero h1 { font-size:3rem; position:relative; z-index:2; }
+  #template1 .hero button { position:relative; z-index:2; padding:15px 30px; background:#ff5722; border:none; color:#fff; border-radius:50px; font-size:1.1rem; }
+  #template1 .services { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:50px 20px; }
+  #template1 .service-card { background:#fff; padding:25px; border-radius:15px; flex:1 1 250px; max-width:300px; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+  #template1 .contact { max-width:600px; margin:0 auto 50px; padding:30px; background:#fff; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+  #template1 .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:0 auto 50px; }
+  #template1 .gallery img { width:100%; border-radius:15px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
+  #template1 .gallery img.visible { opacity:1; transform:translateY(0); }
+
+  /* -------------------- Template 2: Minimal Modern -------------------- */
+  #template2 { background:#fff; }
+  #template2 .hero { height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(120deg,#2196f3,#21cbf3); color:#fff; }
+  #template2 .hero h1 { font-size:3rem; margin-bottom:20px; }
+  #template2 .hero button { padding:15px 35px; border:none; border-radius:30px; background:#ffeb3b; color:#000; font-weight:600; }
+  #template2 .services { display:flex; overflow-x:auto; padding:40px 20px; gap:20px; }
+  #template2 .service-card { min-width:250px; flex:0 0 auto; background:#f1f1f1; padding:20px; border-radius:15px; text-align:center; }
+  #template2 .contact { padding:40px 20px; text-align:center; }
+  #template2 .contact form { display:flex; flex-direction:column; gap:15px; max-width:400px; margin:0 auto; }
+  #template2 .contact input, #template2 .contact select { padding:12px; border-radius:8px; border:1px solid #ccc; }
+  #template2 .contact button { padding:12px; border:none; border-radius:30px; background:#2196f3; color:#fff; font-size:1rem; }
+  #template2 .gallery { display:flex; overflow-x:auto; gap:20px; padding:0 20px; margin-bottom:50px; }
+  #template2 .gallery img { min-width:300px; border-radius:15px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
+  #template2 .gallery img.visible { opacity:1; transform:translateY(0); }
+
+  /* -------------------- Template 3: Bold & Colorful -------------------- */
+  #template3 { background:#fafafa; }
+  #template3 .hero { height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; background:linear-gradient(90deg,#ff5722,#ff9800); position:relative; }
+  #template3 .hero h1 { font-size:3rem; }
+  #template3 .hero button { padding:15px 30px; border-radius:50px; background:#4caf50; border:none; color:#fff; font-size:1.1rem; }
+  #template3 .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:50px auto; }
+  #template3 .service-card { background:#fff; padding:25px; border-radius:20px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+  #template3 .contact { max-width:600px; margin:0 auto 50px; padding:40px; background:#fff; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+  #template3 .gallery { display:flex; flex-wrap:wrap; gap:20px; max-width:1200px; margin:0 auto 50px; }
+  #template3 .gallery img { width:100%; border-radius:20px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
+  #template3 .gallery img.visible { opacity:1; transform:translateY(0); }
+
+  /* Responsive */
+  @media(max-width:768px){ #template1 .services, #template3 .services { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<!-- Template Switch Buttons -->
+<div style="text-align:center; padding:20px; background:#eee;">
+  <button onclick="showTemplate(1)">Template 1</button>
+  <button onclick="showTemplate(2)">Template 2</button>
+  <button onclick="showTemplate(3)">Template 3</button>
+</div>
+
+<!-- -------------------- Template 1 -------------------- -->
+<div id="template1" class="template">
+  <section class="hero">
+    <h1>Template 1 Hero</h1>
+    <button onclick="scrollToForm('form1')">Go to Form</button>
+  </section>
+  <section class="services">
+    <div class="service-card"><h4>Service 1</h4><p>Description here</p></div>
+    <div class="service-card"><h4>Service 2</h4><p>Description here</p></div>
+    <div class="service-card"><h4>Service 3</h4><p>Description here</p></div>
+  </section>
+  <section class="contact">
+    <form id="form1"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
+  </section>
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1597806554465-351c35165fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
+    <img src="https://images.unsplash.com/photo-1599832018896-9c174aa2f72c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
+    <img src="https://images.unsplash.com/photo-1597806554460-73b4b9b1e74b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
+  </section>
+</div>
+
+<!-- -------------------- Template 2 -------------------- -->
+<div id="template2" class="template">
+  <section class="hero">
+    <h1>Template 2 Hero</h1>
+    <button onclick="scrollToForm('form2')">Go to Form</button>
+  </section>
+  <section class="services">
+    <div class="service-card"><h4>Service A</h4></div>
+    <div class="service-card"><h4>Service B</h4></div>
+    <div class="service-card"><h4>Service C</h4></div>
+  </section>
+  <section class="contact">
+    <form id="form2"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
+  </section>
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1601597117906-5f5f5b5cde6b">
+    <img src="https://images.unsplash.com/photo-1601597117905-3e4c3d4b4a4b">
+    <img src="https://images.unsplash.com/photo-1601597117904-2c2d2c2a2b2c">
+  </section>
+</div>
+
+<!-- -------------------- Template 3 -------------------- -->
+<div id="template3" class="template">
+  <section class="hero">
+    <h1>Template 3 Hero</h1>
+    <button onclick="scrollToForm('form3')">Go to Form</button>
+  </section>
+  <section class="services">
+    <div class="service-card"><h4>Option X</h4></div>
+    <div class="service-card"><h4>Option Y</h4></div>
+    <div class="service-card"><h4>Option Z</h4></div>
+  </section>
+  <section class="contact">
+    <form id="form3"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
+  </section>
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1597806554465-351c35165fc3">
+    <img src="https://images.unsplash.com/photo-1599832018896-9c174aa2f72c">
+    <img src="https://images.unsplash.com/photo-1597806554460-73b4b9b1e74b">
+  </section>
+</div>
+
+<script>
+// Show selected template
+function showTemplate(num){
+  for(let i=1;i<=3;i++){document.getElementById('template'+i).style.display=(i===num)?'block':'none';}
+}
+// Scroll to form
+function scrollToForm(formId){document.getElementById(formId).scrollIntoView({behavior:'smooth'});}
+// Gallery fade-in
+const galleryImgs = document.querySelectorAll('.gallery img');
+const observer = new IntersectionObserver((entries, obs)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible'); obs.unobserve(entry.target);}});
+},{threshold:0.5});
+galleryImgs.forEach(img=>observer.observe(img));
+// Show template 1 by default
+showTemplate(1);
+</script>
+
+</body>
+</html>
