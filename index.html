@@ -1,148 +1,692 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3 Modern Templates</title>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  body { font-family: 'Rubik', sans-serif; margin:0; padding:0; scroll-behavior:smooth; }
-  .template { display:none; padding:0; margin:0; }
-  button { cursor:pointer; transition:0.3s; }
-  button:hover { transform:scale(1.05); }
-
-  /* -------------------- Template 1: Classic Card Layout -------------------- */
-  #template1 { background:#f5f5f5; }
-  #template1 .hero { background:url('https://images.unsplash.com/photo-1597806554465-351c35165fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200') center/cover no-repeat; height:70vh; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; position:relative; }
-  #template1 .hero::before { content:""; position:absolute; top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.5);}
-  #template1 .hero h1 { font-size:3rem; position:relative; z-index:2; }
-  #template1 .hero button { position:relative; z-index:2; padding:15px 30px; background:#ff5722; border:none; color:#fff; border-radius:50px; font-size:1.1rem; }
-  #template1 .services { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:50px 20px; }
-  #template1 .service-card { background:#fff; padding:25px; border-radius:15px; flex:1 1 250px; max-width:300px; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
-  #template1 .contact { max-width:600px; margin:0 auto 50px; padding:30px; background:#fff; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); }
-  #template1 .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:0 auto 50px; }
-  #template1 .gallery img { width:100%; border-radius:15px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
-  #template1 .gallery img.visible { opacity:1; transform:translateY(0); }
-
-  /* -------------------- Template 2: Minimal Modern -------------------- */
-  #template2 { background:#fff; }
-  #template2 .hero { height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(120deg,#2196f3,#21cbf3); color:#fff; }
-  #template2 .hero h1 { font-size:3rem; margin-bottom:20px; }
-  #template2 .hero button { padding:15px 35px; border:none; border-radius:30px; background:#ffeb3b; color:#000; font-weight:600; }
-  #template2 .services { display:flex; overflow-x:auto; padding:40px 20px; gap:20px; }
-  #template2 .service-card { min-width:250px; flex:0 0 auto; background:#f1f1f1; padding:20px; border-radius:15px; text-align:center; }
-  #template2 .contact { padding:40px 20px; text-align:center; }
-  #template2 .contact form { display:flex; flex-direction:column; gap:15px; max-width:400px; margin:0 auto; }
-  #template2 .contact input, #template2 .contact select { padding:12px; border-radius:8px; border:1px solid #ccc; }
-  #template2 .contact button { padding:12px; border:none; border-radius:30px; background:#2196f3; color:#fff; font-size:1rem; }
-  #template2 .gallery { display:flex; overflow-x:auto; gap:20px; padding:0 20px; margin-bottom:50px; }
-  #template2 .gallery img { min-width:300px; border-radius:15px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
-  #template2 .gallery img.visible { opacity:1; transform:translateY(0); }
-
-  /* -------------------- Template 3: Bold & Colorful -------------------- */
-  #template3 { background:#fafafa; }
-  #template3 .hero { height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; background:linear-gradient(90deg,#ff5722,#ff9800); position:relative; }
-  #template3 .hero h1 { font-size:3rem; }
-  #template3 .hero button { padding:15px 30px; border-radius:50px; background:#4caf50; border:none; color:#fff; font-size:1.1rem; }
-  #template3 .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:50px auto; }
-  #template3 .service-card { background:#fff; padding:25px; border-radius:20px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-  #template3 .contact { max-width:600px; margin:0 auto 50px; padding:40px; background:#fff; border-radius:20px; box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-  #template3 .gallery { display:flex; flex-wrap:wrap; gap:20px; max-width:1200px; margin:0 auto 50px; }
-  #template3 .gallery img { width:100%; border-radius:20px; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
-  #template3 .gallery img.visible { opacity:1; transform:translateY(0); }
-
-  /* Responsive */
-  @media(max-width:768px){ #template1 .services, #template3 .services { flex-direction:column; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replit Style Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #1a202c;
+        }
+        .bg-custom-dark {
+            background-color: #121417;
+        }
+        .text-custom-light {
+            color: #f7f9fc;
+        }
+        .btn-orange {
+            background-color: #ff5700;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-orange:hover {
+            background-color: #e54d00;
+        }
+        .card-purple-gradient {
+            background: linear-gradient(180deg, rgba(78, 48, 142, 0.8) 0%, rgba(35, 23, 76, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .card-box-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .bg-orange-custom {
+            background-color: #ff5700;
+        }
+        .bg-white-gradient {
+            background: linear-gradient(to right, #f7f9fc, #ffffff);
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #ff5700;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .source-citation a {
+            color: #ff5700;
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #1e2124;
+            color: #f7f9fc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white-gradient">
 
-<!-- Template Switch Buttons -->
-<div style="text-align:center; padding:20px; background:#eee;">
-  <button onclick="showTemplate(1)">Template 1</button>
-  <button onclick="showTemplate(2)">Template 2</button>
-  <button onclick="showTemplate(3)">Template 3</button>
-</div>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <img src="https://replit.com/public/icons/replit-logo-sm.svg" alt="Replit Logo" class="h-8 w-8">
+                    <span class="text-xl font-bold text-gray-900">replit</span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                    <a href="#" class="hover:text-gray-900 transition-colors">Products</a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">For Work</a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">Resources</a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">Pricing</a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">Careers</a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">Agent</a>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">Contact sales</a>
+                <a href="#" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">Log in</a>
+                <a href="#" class="btn-orange">Sign up</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- -------------------- Template 1 -------------------- -->
-<div id="template1" class="template">
-  <section class="hero">
-    <h1>Template 1 Hero</h1>
-    <button onclick="scrollToForm('form1')">Go to Form</button>
-  </section>
-  <section class="services">
-    <div class="service-card"><h4>Service 1</h4><p>Description here</p></div>
-    <div class="service-card"><h4>Service 2</h4><p>Description here</p></div>
-    <div class="service-card"><h4>Service 3</h4><p>Description here</p></div>
-  </section>
-  <section class="contact">
-    <form id="form1"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
-  </section>
-  <section class="gallery">
-    <img src="https://images.unsplash.com/photo-1597806554465-351c35165fc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
-    <img src="https://images.unsplash.com/photo-1599832018896-9c174aa2f72c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
-    <img src="https://images.unsplash.com/photo-1597806554460-73b4b9b1e74b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600">
-  </section>
-</div>
+    <!-- Hero Section -->
+    <header class="bg-custom-dark text-custom-light text-center py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-4">
+                Turn your ideas into apps
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-8">
+                What will you create? The possibilities are endless.
+            </p>
+            <div class="bg-gray-800 p-6 md:p-10 rounded-3xl max-w-2xl mx-auto border border-gray-700 shadow-xl">
+                <div class="flex justify-center mb-6 space-x-4">
+                    <button id="get-suggestions-btn" class="flex items-center text-sm md:text-base bg-gray-700 px-4 py-2 rounded-full text-gray-300 hover:bg-gray-600 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674a2 2 0 001.995-1.897L16.29 9.389a2 2 0 00-1.995-2.103H9.704a2 2 0 00-1.995 2.103L8.005 15.103A2 2 0 0010 17zM12 4v4m0 0a2 2 0 100-4v4zm0 0l-3-3m3 3l3-3"></path></svg>
+                        Get suggestions ✨
+                    </button>
+                    <button id="write-a-prompt-btn" class="flex items-center text-sm md:text-base bg-gray-700 px-4 py-2 rounded-full text-gray-300 hover:bg-gray-600 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5h10m-10 4h10m-10 4h10m-10 4h10M3 3h4m-4 4h4m-4 4h4m-4 4h4"></path></svg>
+                        Write a prompt
+                    </button>
+                </div>
+                <div class="relative mb-6">
+                    <textarea id="idea-input" placeholder="Describe your idea in detail, and we'll build it for you..." class="w-full h-32 bg-transparent border border-gray-600 rounded-xl py-3 px-5 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"></textarea>
+                    <button class="absolute right-3 top-3 p-2 rounded-full hover:bg-gray-700 transition-colors">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h-3m3 0a2 2 0 11-4 0 2 2 0 014 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </button>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                    <button class="flex items-center text-sm text-gray-400 px-4 py-2 rounded-full border border-gray-600 hover:bg-gray-700 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                        Attach files
+                    </button>
+                    <button id="start-building-btn" class="btn-orange flex items-center justify-center">
+                        <span id="button-text">Start building with AI ✨</span>
+                        <div id="loading-spinner" class="hidden spinner ml-2"></div>
+                        <svg id="button-arrow" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="response-container" class="mt-12 hidden">
+                <div class="bg-gray-800 p-6 md:p-10 rounded-3xl max-w-2xl mx-auto border border-gray-700 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Your AI-generated plan:</h3>
+                    <div id="response-content" class="text-gray-300 text-left whitespace-pre-wrap"></div>
+                    <div id="sources-container" class="text-sm text-gray-500 mt-4 text-left"></div>
+                    <button id="continue-btn" class="btn-orange mt-6 w-full md:w-auto hidden">Continue and refine</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- -------------------- Template 2 -------------------- -->
-<div id="template2" class="template">
-  <section class="hero">
-    <h1>Template 2 Hero</h1>
-    <button onclick="scrollToForm('form2')">Go to Form</button>
-  </section>
-  <section class="services">
-    <div class="service-card"><h4>Service A</h4></div>
-    <div class="service-card"><h4>Service B</h4></div>
-    <div class="service-card"><h4>Service C</h4></div>
-  </section>
-  <section class="contact">
-    <form id="form2"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
-  </section>
-  <section class="gallery">
-    <img src="https://images.unsplash.com/photo-1601597117906-5f5f5b5cde6b">
-    <img src="https://images.unsplash.com/photo-1601597117905-3e4c3d4b4a4b">
-    <img src="https://images.unsplash.com/photo-1601597117904-2c2d2c2a2b2c">
-  </section>
-</div>
+    <!-- Trusted by Section -->
+    <section class="bg-white py-16 text-center">
+        <p class="text-lg text-gray-500 mb-6">Loved by 40 million app creators, including teams at:</p>
+        <div class="flex flex-wrap justify-center items-center space-x-8 md:space-x-12 px-4">
+            <img src="https://replit.com/public/images/logos/ark-invest.svg" alt="ARK Invest" class="h-8 md:h-10">
+            <img src="https://replit.com/public/images/logos/zillow.svg" alt="Zillow" class="h-8 md:h-10">
+            <img src="https://replit.com/public/images/logos/google.svg" alt="Google" class="h-8 md:h-10">
+            <img src="https://replit.com/public/images/logos/anthropic.svg" alt="Anthropic" class="h-8 md:h-10">
+            <img src="https://replit.com/public/images/logos/coinbase.svg" alt="Coinbase" class="h-8 md:h-10">
+            <img src="https://replit.com/public/images/logos/hg.svg" alt="Hg" class="h-8 md:h-10">
+        </div>
+    </section>
 
-<!-- -------------------- Template 3 -------------------- -->
-<div id="template3" class="template">
-  <section class="hero">
-    <h1>Template 3 Hero</h1>
-    <button onclick="scrollToForm('form3')">Go to Form</button>
-  </section>
-  <section class="services">
-    <div class="service-card"><h4>Option X</h4></div>
-    <div class="service-card"><h4>Option Y</h4></div>
-    <div class="service-card"><h4>Option Z</h4></div>
-  </section>
-  <section class="contact">
-    <form id="form3"><input placeholder="Name"><input placeholder="Phone"><button>Submit</button></form>
-  </section>
-  <section class="gallery">
-    <img src="https://images.unsplash.com/photo-1597806554465-351c35165fc3">
-    <img src="https://images.unsplash.com/photo-1599832018896-9c174aa2f72c">
-    <img src="https://images.unsplash.com/photo-1597806554460-73b4b9b1e74b">
-  </section>
-</div>
+    <!-- Agent Section -->
+    <section class="bg-orange-custom text-white py-20 md:py-24">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="bg-gray-900 p-6 md:p-8 rounded-3xl border border-gray-700 shadow-xl">
+                    <h3 class="text-xl font-bold mb-4">Help Me Code ✨</h3>
+                    <div class="relative mb-4">
+                        <textarea id="code-prompt-input" placeholder="e.g., 'Write a Python function to sort a list of numbers'" class="w-full h-20 bg-transparent border border-gray-600 rounded-xl py-2 px-4 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"></textarea>
+                    </div>
+                    <button id="generate-code-btn" class="btn-orange w-full flex items-center justify-center mb-6">
+                        <span id="generate-code-text">Generate Code</span>
+                        <div id="generate-code-spinner" class="hidden spinner ml-2"></div>
+                    </button>
+                    <div id="generated-code-container" class="mt-4 hidden">
+                        <pre id="generated-code-content" class="text-sm"></pre>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mt-8 mb-4">Fix My Code ✨</h3>
+                    <div class="relative mb-4">
+                        <textarea id="fix-code-input" placeholder="Paste your buggy code here..." class="w-full h-20 bg-transparent border border-gray-600 rounded-xl py-2 px-4 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"></textarea>
+                    </div>
+                    <button id="fix-code-btn" class="btn-orange w-full flex items-center justify-center">
+                        <span id="fix-code-text">Fix Code</span>
+                        <div id="fix-code-spinner" class="hidden spinner ml-2"></div>
+                    </button>
+                    <div id="fixed-code-container" class="mt-4 hidden">
+                        <pre id="fixed-code-content" class="text-sm"></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 text-center lg:text-left">
+                <h3 class="text-3xl font-bold mb-4">Build & refine your app with Agent</h3>
+                <p class="text-gray-200 text-lg mb-4">
+                    Start by telling the Replit Agent what kind of app or site you want to build. Then, keep improving it by giving the Agent feedback. Agent automatically searches the Web as needed to ensure it has access to the latest information to fulfill your request
+                </p>
+                <p class="text-gray-300 text-sm">
+                    For more complex tasks, turn on advanced options like Extended Thinking and High-Power Models.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<script>
-// Show selected template
-function showTemplate(num){
-  for(let i=1;i<=3;i++){document.getElementById('template'+i).style.display=(i===num)?'block':'none';}
-}
-// Scroll to form
-function scrollToForm(formId){document.getElementById(formId).scrollIntoView({behavior:'smooth'});}
-// Gallery fade-in
-const galleryImgs = document.querySelectorAll('.gallery img');
-const observer = new IntersectionObserver((entries, obs)=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible'); obs.unobserve(entry.target);}});
-},{threshold:0.5});
-galleryImgs.forEach(img=>observer.observe(img));
-// Show template 1 by default
-showTemplate(1);
-</script>
+    <!-- Features Section -->
+    <section class="bg-orange-custom text-white py-20 md:py-24">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="bg-gray-900 p-6 md:p-8 rounded-3xl border border-gray-700 shadow-xl">
+                    <div class="bg-gray-800 p-4 rounded-xl mb-4">
+                        <p class="text-gray-300">Build me an app that compares current pricing across my competitors in the CRM space</p>
+                    </div>
+                    <p class="text-gray-200 mb-4">Absolutely! Here's a plan:</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="bg-gray-700 h-4 w-full rounded-full"></span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></path></svg>
+                            <span class="bg-gray-700 h-4 w-full rounded-full"></span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="bg-gray-700 h-4 w-full rounded-full"></span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-orange-500 py-3 rounded-xl font-bold hover:bg-orange-600 transition-colors">
+                        Approve plan
+                    </button>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 text-center lg:text-left">
+                <h3 class="text-3xl font-bold mb-4">Build & refine your app with Agent</h3>
+                <p class="text-gray-200 text-lg mb-4">
+                    Start by telling the Replit Agent what kind of app or site you want to build. Then, keep improving it by giving the Agent feedback. Agent automatically search the Web as needed to ensure it has access to the latest information to fulfil your request
+                </p>
+                <p class="text-gray-300 text-sm">
+                    For more complex tasks, turn on advanced options like Extended Thinking and High-Power Models.
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Vibe Coding Section -->
+    <section class="bg-white py-20 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+                The safest place for vibe coding
+            </h2>
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+                Vibe coding makes software creation accessible to everyone, entirely through natural language. Whether it's personal software for yourself and family, a new business coming to life, or internal tools at your workplace, Replit is the best place for anybody to build.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg">
+                    <button id="generate-readme-btn" class="w-full btn-orange flex items-center justify-center mb-4">
+                        <span id="generate-readme-text">Generate README ✨</span>
+                        <div id="generate-readme-spinner" class="hidden spinner ml-2"></div>
+                    </button>
+                    <div id="readme-container" class="mt-4 hidden">
+                        <pre id="readme-content" class="text-sm text-left"></pre>
+                    </div>
+                    <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                        <img src="https://placehold.co/48x48/f7f9fc/1a202c?text=SSO" alt="SSO Icon" class="h-10 w-10">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">SSO for secure access</h3>
+                    <p class="text-gray-600">Seamlessly onboard entire departments securely through your existing identity provider.</p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                        <img src="https://placehold.co/48x48/f7f9fc/1a202c?text=SOC2" alt="SOC2 Icon" class="h-10 w-10">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">SOC 2 for enterprise</h3>
+                    <p class="text-gray-600">Create with confidence. Replit is SOC 2 compliant and meets rigorous security standards, empowering your orgs to develop mission-critical applications.</p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-gray-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a2 2 0 00-2 2v2H6a2 2 0 00-2 2v6a2 2 0 002 2h2v3a2 2 0 002 2h4a2 2 0 002-2v-3h2a2 2 0 002-2V7a2 2 0 00-2-2h-4V3a2 2 0 00-2-2zm-6 6h12v6H6V7zm10 8v2h-4v-2h4zm-4-9h4v2h-4V6z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Private deployments to protect innovations</h3>
+                    <p class="text-gray-600">Share and test internal prototypes securely. Ensure only authorized team members can access your projects before they're ready for the world.</p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg">
+                    <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-gray-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-10h4v2h-4v-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Role-based access control</h3>
+                    <p class="text-gray-600">Easily map your identity framework and assign specific roles to individuals or groups. Manage invites with SCIM. Control who can view, edit, or deploy your applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-white py-20 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-16">
+                Don't just take our word for it
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 px-4">
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg text-left">
+                    <div class="flex items-center mb-4">
+                        <img src="https://replit.com/public/images/logos/reid-hoffman.svg" alt="Reid Hoffman" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Reid Hoffman</p>
+                            <p class="text-sm text-gray-500">COO-FOUNDER, LINKEDIN</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        I asked Replit to "clone LinkedIn" - just to see how far it would get with a single prompt. The result? A surprisingly functional prototype. It's a powerful reminder with the right frame, today's AI tools can turn a single idea into working software.
+                    </p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg text-left">
+                    <div class="flex items-center mb-4">
+                        <img src="https://replit.com/public/images/logos/andrew-wilkinson.svg" alt="Andrew Wilkinson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Andrew Wilkinson</p>
+                            <p class="text-sm text-gray-500">CO-FOUNDER, TINY</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Ok, I'm addicted to @replit. For my entire design career, I've always had to hire developers to do even the most basic stuff for me. Having an absolute blast having a free AI programmer at my behest.
+                    </p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-orange-100 shadow-lg text-left relative">
+                    <span class="absolute top-4 right-4 text-xs font-semibold text-orange-600 bg-orange-200 px-2 py-1 rounded-full">replit.com</span>
+                    <div class="flex items-center mb-4">
+                        <img src="https://replit.com/public/images/logos/debbie-capp.svg" alt="Deb Capp" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Deb Capp</p>
+                            <p class="text-sm text-gray-500">PRESIDENT, MICROSOFT AMERICAS</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Our collaboration with Replit demonstrates a commitment to rapid development, enabling business teams across enterprises to innovate and solve problems without traditional technical barriers. Our relationship exemplifies our commitment to making powerful development tools accessible to everyone.
+                    </p>
+                </div>
+                <div class="p-6 rounded-2xl border border-gray-200 bg-white shadow-lg text-left">
+                    <div class="flex items-center mb-4">
+                        <img src="https://replit.com/public/images/logos/key-vardya.svg" alt="Key Vardya" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Key Vardya</p>
+                            <p class="text-sm text-gray-500">PORTFOLIO CO., HG CAPITAL</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        The ability to go from idea to working realization in minutes has opened new possibilities for innovation across our portfolio. We're seeing apps built in 45 minutes that save teams hours every week.
+                    </p>
+                </div>
+            </div>
+            <div class="flex justify-center items-center space-x-4 mt-8">
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section class="bg-custom-dark text-custom-light text-center py-20 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-8">
+                What are you waiting for?
+            </h2>
+            <a href="#" class="btn-orange text-lg">
+                Get Started free
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div>
+                <h4 class="font-semibold text-gray-200 mb-4">HANDY LINKS</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-200">About us</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Vibe Coding 101</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Help</a></li>
+                    <li><a href="#" class="hover:text-gray-200">How to guides</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Import from GitHub</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Status</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Additional resources</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Brand kit</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Partnerships</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-200 mb-4">LEGAL</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-200">Terms of service</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Commercial agreement</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Privacy</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Subprocessors</a></li>
+                    <li><a href="#" class="hover:text-gray-200">DPA</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Report abuse</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-200 mb-4">CONNECT</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-gray-200">X / Twitter</a></li>
+                    <li><a href="#" class="hover:text-gray-200">TikTok</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Facebook</a></li>
+                    <li><a href="#" class="hover:text-gray-200">Instagram</a></li>
+                    <li><a href="#" class="hover:text-gray-200">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="col-span-2 lg:col-span-1">
+                <!-- Placeholder for the "Scroll to top" button in the images -->
+                <button class="hidden md:block bg-gray-700 text-gray-200 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-600 transition-colors">
+                    Scroll to top
+                </button>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-8 text-center text-xs text-gray-500">
+            <p>&copy; 2023 REPLIT, INC. ALL RIGHTS RESERVED COPYRIGHT</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ideaInput = document.getElementById('idea-input');
+            const startBuildingBtn = document.getElementById('start-building-btn');
+            const buttonText = document.getElementById('button-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const buttonArrow = document.getElementById('button-arrow');
+            const responseContainer = document.getElementById('response-container');
+            const responseContent = document.getElementById('response-content');
+            const sourcesContainer = document.getElementById('sources-container');
+            const continueBtn = document.getElementById('continue-btn');
+            const getSuggestionsBtn = document.getElementById('get-suggestions-btn');
+            const writeAPromptBtn = document.getElementById('write-a-prompt-btn');
+            const codePromptInput = document.getElementById('code-prompt-input');
+            const generateCodeBtn = document.getElementById('generate-code-btn');
+            const generateCodeText = document.getElementById('generate-code-text');
+            const generateCodeSpinner = document.getElementById('generate-code-spinner');
+            const generatedCodeContainer = document.getElementById('generated-code-container');
+            const generatedCodeContent = document.getElementById('generated-code-content');
+            const fixCodeInput = document.getElementById('fix-code-input');
+            const fixCodeBtn = document.getElementById('fix-code-btn');
+            const fixCodeText = document.getElementById('fix-code-text');
+            const fixCodeSpinner = document.getElementById('fix-code-spinner');
+            const fixedCodeContainer = document.getElementById('fixed-code-container');
+            const fixedCodeContent = document.getElementById('fixed-code-content');
+            const generateReadmeBtn = document.getElementById('generate-readme-btn');
+            const generateReadmeText = document.getElementById('generate-readme-text');
+            const generateReadmeSpinner = document.getElementById('generate-readme-spinner');
+            const readmeContainer = document.getElementById('readme-container');
+            const readmeContent = document.getElementById('readme-content');
+
+            let chatHistory = [];
+
+            const suggestions = [
+                "Build a recipe finder app using Python and a web scraping library.",
+                "Create a simple online chat application with a single chat room using Node.js and WebSockets.",
+                "Develop a personal finance tracker that lets me log daily expenses and visualizes spending habits.",
+                "Design a simple 2D platformer game with a scoring system using HTML canvas and JavaScript."
+            ];
+
+            getSuggestionsBtn.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * suggestions.length);
+                ideaInput.value = suggestions[randomIndex];
+            });
+
+            writeAPromptBtn.addEventListener('click', () => {
+                ideaInput.value = "";
+                ideaInput.focus();
+            });
+
+            startBuildingBtn.addEventListener('click', async () => {
+                const userQuery = ideaInput.value.trim();
+                if (!userQuery) return;
+
+                // Clear previous response and chat history
+                responseContainer.classList.add('hidden');
+                responseContent.innerHTML = '';
+                sourcesContainer.innerHTML = '';
+                chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+
+                await getAIResponse(userQuery, 'app_plan');
+            });
+
+            continueBtn.addEventListener('click', async () => {
+                const userQuery = ideaInput.value.trim();
+                if (!userQuery) return;
+
+                // Add user's new prompt to chat history
+                chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+
+                // Clear input and previous response
+                ideaInput.value = '';
+                responseContent.innerHTML = '';
+                sourcesContainer.innerHTML = '';
+
+                // Get new response from AI with updated chat history
+                await getAIResponse(userQuery, 'app_plan');
+            });
+
+            generateCodeBtn.addEventListener('click', async () => {
+                const userQuery = codePromptInput.value.trim();
+                if (!userQuery) return;
+
+                generatedCodeContainer.classList.add('hidden');
+                generatedCodeContent.textContent = '';
+                await getAIResponse(userQuery, 'code_generation');
+            });
+            
+            fixCodeBtn.addEventListener('click', async () => {
+                const userQuery = fixCodeInput.value.trim();
+                if (!userQuery) return;
+            
+                fixedCodeContainer.classList.add('hidden');
+                fixedCodeContent.textContent = '';
+                await getAIResponse(userQuery, 'code_fix');
+            });
+
+            generateReadmeBtn.addEventListener('click', async () => {
+                const userQuery = ideaInput.value.trim();
+                if (!userQuery) {
+                    alert('Please enter an app idea in the main text area first!');
+                    return;
+                }
+                readmeContainer.classList.add('hidden');
+                readmeContent.textContent = '';
+                await getAIResponse(userQuery, 'readme_generation');
+            });
+
+            async function getAIResponse(prompt, mode) {
+                let button, buttonTextElement, spinner, container, contentElement;
+
+                if (mode === 'app_plan') {
+                    button = startBuildingBtn;
+                    buttonTextElement = buttonText;
+                    spinner = loadingSpinner;
+                    container = responseContainer;
+                    contentElement = responseContent;
+                    continueBtn.classList.add('hidden');
+                } else if (mode === 'code_generation') {
+                    button = generateCodeBtn;
+                    buttonTextElement = generateCodeText;
+                    spinner = generateCodeSpinner;
+                    container = generatedCodeContainer;
+                    contentElement = generatedCodeContent;
+                } else if (mode === 'code_fix') {
+                    button = fixCodeBtn;
+                    buttonTextElement = fixCodeText;
+                    spinner = fixCodeSpinner;
+                    container = fixedCodeContainer;
+                    contentElement = fixedCodeContent;
+                } else if (mode === 'readme_generation') {
+                    button = generateReadmeBtn;
+                    buttonTextElement = generateReadmeText;
+                    spinner = generateReadmeSpinner;
+                    container = readmeContainer;
+                    contentElement = readmeContent;
+                }
+
+                // Show loading state
+                buttonTextElement.textContent = 'Thinking...';
+                spinner.classList.remove('hidden');
+                button.disabled = true;
+                if (mode === 'app_plan') {
+                    buttonArrow.classList.add('hidden');
+                }
+
+                let systemInstructionText = "You are a world-class software development AI. Your task is to act as a 'Vibe Coder' and respond to user requests for app ideas. Provide a concise, single-paragraph summary of the app concept, followed by a bulleted list of key features and the recommended technology stack (e.g., HTML, CSS, JavaScript, React, Python, etc.). Make your response sound friendly, energetic, and encouraging. If the user's request is a follow-up, continue the conversation and provide refined suggestions based on the previous response and the new input.";
+                let searchTools = true;
+
+                if (mode === 'code_generation') {
+                    systemInstructionText = "You are an expert programmer. Your task is to write code based on a user's request. Respond with only the code block, nothing else. Do not provide explanations or conversational text outside of the code block.";
+                    searchTools = false;
+                } else if (mode === 'code_fix') {
+                    systemInstructionText = "You are a professional debugger. Your task is to analyze and fix buggy code. Provide a brief, concise explanation of the fix first, then provide the complete, corrected code block. Do not provide any other conversational text.";
+                    searchTools = false;
+                } else if (mode === 'readme_generation') {
+                    systemInstructionText = "You are a technical writer specializing in documentation. Your task is to generate a professional, well-structured README.md file for a software project. Use Markdown formatting. Include a title, a brief description, a list of features, and a 'Getting Started' section. Do not provide any conversational text before or after the Markdown content.";
+                    searchTools = false;
+                }
+
+                const payload = {
+                    contents: chatHistory,
+                    tools: searchTools ? [{ "google_search": {} }] : undefined,
+                    systemInstruction: {
+                        parts: [{ text: systemInstructionText }]
+                    },
+                };
+
+                if (mode === 'app_plan') {
+                    payload.contents = [{ role: "user", parts: [{ text: prompt }] }];
+                } else {
+                    payload.contents = [{ role: "user", parts: [{ text: prompt }] }];
+                }
+
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                let retryCount = 0;
+                const maxRetries = 3;
+                let response;
+
+                while (retryCount < maxRetries) {
+                    try {
+                        response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (response.status !== 429) {
+                            break;
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 2 ** retryCount * 1000));
+                        retryCount++;
+                    } catch (error) {
+                        console.error("Fetch error:", error);
+                        break;
+                    }
+                }
+
+                // Hide loading state
+                buttonTextElement.textContent = button.getAttribute('data-initial-text');
+                spinner.classList.add('hidden');
+                button.disabled = false;
+                if (mode === 'app_plan') {
+                    buttonArrow.classList.remove('hidden');
+                }
+
+                if (!response || !response.ok) {
+                    contentElement.innerHTML = `<p class="text-red-400">Sorry, something went wrong. Please try again later.</p>`;
+                    container.classList.remove('hidden');
+                    return;
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const text = candidate.content.parts[0].text;
+                    let sources = [];
+
+                    if (mode === 'app_plan') {
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+                    }
+
+                    contentElement.textContent = text;
+                    container.classList.remove('hidden');
+
+                    if (mode === 'app_plan') {
+                        chatHistory.push({ role: "model", parts: [{ text: text }] });
+                        continueBtn.classList.remove('hidden');
+                        if (sources.length > 0) {
+                            sourcesContainer.innerHTML = '<p class="mt-4 font-semibold">Sources:</p>';
+                            const sourceList = document.createElement('ul');
+                            sourceList.className = 'list-disc list-inside mt-2';
+                            sources.forEach(source => {
+                                const listItem = document.createElement('li');
+                                listItem.className = 'source-citation';
+                                const link = document.createElement('a');
+                                link.href = source.uri;
+                                link.textContent = source.title;
+                                link.target = "_blank";
+                                listItem.appendChild(link);
+                                sourceList.appendChild(listItem);
+                            });
+                            sourcesContainer.appendChild(sourceList);
+                        }
+                    }
+
+                } else {
+                    contentElement.innerHTML = `<p class="text-red-400">Sorry, something went wrong. Please try again later.</p>`;
+                    container.classList.remove('hidden');
+                }
+            }
+
+            // Set initial button texts for reference
+            generateCodeBtn.setAttribute('data-initial-text', 'Generate Code');
+            fixCodeBtn.setAttribute('data-initial-text', 'Fix Code');
+            generateReadmeBtn.setAttribute('data-initial-text', 'Generate README ✨');
+        });
+    </script>
 </body>
 </html>
